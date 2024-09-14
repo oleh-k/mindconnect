@@ -9,10 +9,14 @@ $connection = new mysqli($servername, $username, $password, $dbname);
 $ids = [1,2];
 
 $data = [];
-foreach ($ids as $id) {
-    $result = $connection->query("SELECT `x`, `y` FROM `values` WHERE `id` = " . $id);
-    $data[] = $result->fetch_row();
-} 
+
+$ids_str = implode(',', $ids);
+
+$result = $connection->query("SELECT `x`, `y` FROM `values` WHERE `id` IN ($ids_str)");
+
+while ($row = $result->fetch_row()) {
+    $data[] = $row;
+}
 
 echo '<pre>';
 var_dump($data);
