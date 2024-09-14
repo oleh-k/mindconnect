@@ -12,6 +12,8 @@ $data = [];
 
 $ids_str = implode(',', $ids);
 
+if (preg_match("~[^0-9\,]+~ui", $ids_str)) exit ('validation error');
+
 $result = $connection->query("SELECT `x`, `y` FROM `values` WHERE `id` IN ($ids_str)");
 
 while ($row = $result->fetch_row()) {
