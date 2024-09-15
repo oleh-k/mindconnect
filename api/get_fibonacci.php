@@ -34,6 +34,8 @@ $id = $db->query($q);
 
 
 $data['success'] = true;
-$data['data'] = $id;
+$data['data']['id'] = $id;
+$data['data']['fibonacci'] = $fibonacci;
+$data['data']['user_ip'] = $ip;
 echo json_encode($data);
 exit();

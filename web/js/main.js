@@ -22,7 +22,8 @@ $(document).ready(function () {
                 user_input: userInput
             },
             success: function (response) {
-                alert("Response from server: " + response); 
+                let o = JSON.parse(response);
+                $('#result').text('Your Fibonacci number: ' + o.data.fibonacci);
             },
             error: function (jqXHR, textStatus, errorThrown) {
                 alert("Error: " + textStatus);
