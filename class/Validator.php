@@ -5,7 +5,7 @@ class Validator
 
     public static function int($value): bool
     {
-        if (is_int($value)) {
+        if (is_numeric($value)) {
             return true;
         } else {
             return false;

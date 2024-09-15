@@ -7,7 +7,7 @@ require_once('../autoloader.php');
 
 $validation_error = true;
 
-if (isset($_REQUEST['name']) || isset($_REQUEST['user_input'])) {
+if (isset($_REQUEST['name']) && isset($_REQUEST['user_input'])) {
     $name = $_REQUEST['name'];
     $user_input = $_REQUEST['user_input'];
 
