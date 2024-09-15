@@ -24,6 +24,10 @@ class DB {
         if ($result === false) {
             return "Error: " . $this->connection->error;
         }
+
+        if ($this->connection->insert_id) {
+            return $this->connection->insert_id;
+        }
         
         return $result;
     }
