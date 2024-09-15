@@ -12,7 +12,7 @@ class Validator
         }
     }
 
-    public static function validateText($value): bool
+    public static function text($value): bool
     {
         if (!is_string($value)) {
             return false;
