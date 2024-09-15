@@ -47,6 +47,8 @@ $(document).ready(function () {
 
 function get_data (page) {
 
+    $('#currentPage').text(page);
+    
     $.ajax({
         url: '/api/gat_data.php',
         type: 'GET',
