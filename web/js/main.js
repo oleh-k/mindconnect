@@ -1,6 +1,11 @@
+
+var currentPage = 1;
+var perPage = 10;
+
 $(document).ready(function () {
 
-    get_data();
+
+    get_data(currentPage);
             
     $('#fibonacciForm').on('submit', function (e) {
         e.preventDefault();  
@@ -24,16 +29,29 @@ $(document).ready(function () {
             }
         });
     });
+
+    $('#nextBtn').on('click', function () {
+        currentPage++;
+        get_data(currentPage);
+    });
+
+    $('#prevBtn').on('click', function () {
+        if (currentPage > 1) {
+            currentPage--;
+            get_data(currentPage);
+        }
+    });
 });
 
 
-function get_data () {
+function get_data (page) {
+
     $.ajax({
         url: '/api/gat_data.php',
         type: 'GET',
         data: {
-            page: 1,
-            per_page: 10
+            page: page,
+            per_page: perPage
         },
         dataType: 'json',
         success: function (response) {
